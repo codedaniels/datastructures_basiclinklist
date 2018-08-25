@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+
+class LinkedList{
+	constructor(){
+		this.head = this.tail = null;
+	}
+	add(value){
+		var newObj = { value: value, next: null, prev: null};
+		if(this.head===null){
+			this.head = this.tail = newObj;
+		} else {
+			this.tail.next = newObj;
+			newObj.prev = this.tail;
+			this.tail = newObj;
+
+		}
+	}
+	pop(){
+		const last = this.tail;
+		const newLast = this.tail.prev;
+		newLast.next = null;
+		last.prev = null;
+		return last.value;
+	}
+}
+
+const list = new LinkedList();
+list.add('a');
+list.add('b');
+list.add('c');
+list.add('d');
+//console.log( list.pop());
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
